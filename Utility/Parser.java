@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.Scanner;
+import java.util.HashMap;
 
 class Parser {
 	public static void printText(String filename) {
@@ -15,8 +16,12 @@ class Parser {
 		}
 	}
 
-	public static void parse (Scanner sc) {
+	public static void parse(Scanner sc) {
 		String input = sc.nextLine();
-		
+		// HashMap that contains <userInput, runnable>
+		HashMap<String, String> command = new HashMap<String, String>();
+
+		command.put("N", "NORTH");
+
 	}
 }

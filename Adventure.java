@@ -1,5 +1,5 @@
 import java.io.File;
-import java.util.Scanner;
+import java.util.*;
 /**
  * Class to store game
  *
@@ -17,8 +17,11 @@ class Adventure {
 		Parser.printText("Text/intro.txt");
 
 		// Initialise room 
-		Place batRuthRoom = new Place("Text/batRuthRoom.txt", null, null, null, null);
-		Place livingRoom = new Place("Text/livingRoom.txt", null, null, batRuthRoom, null);
+		Place batRuthRoom = new Place("Bat Ruth Room", "Text/batRuthRoom.txt", new ArrayList<Exit>);
+		Place livingRoom = new Place("living room","Text/livingRoom.txt", new ArrayList<Exit>);
+
+		// Initialise exit
+		
 
 		// Starting location
 		Place location = livingRoom;
@@ -33,7 +36,7 @@ class Adventure {
 			String input = sc.nextLine();
 			// Moving between places
 			if (input.contains("left")) {
-				location = livingRoom.goEast();
+				location = batRuthRoom;
 			}
 			// End game
 			if (input.contains("quit")) {
