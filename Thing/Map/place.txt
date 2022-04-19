@@ -1,0 +1,4 @@
+// define adjacency matrix
+ 
+Living Room, Bat Ruth Room, Dungeon, Transylvania, Batman Room, Daily Wire
+0, EAST, WEST, 0, 

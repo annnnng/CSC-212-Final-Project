@@ -1,5 +1,5 @@
 /**
- * Class to store info and methods for places
+ * Class to store info and methods for items
  *
  * @author Anh Nguyen
  * @author Sabrina Hatch

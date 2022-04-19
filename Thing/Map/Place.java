@@ -22,7 +22,7 @@ class Place {
 	/** list of items in place */
 	private HashSet<Item> itemsList = new HashSet<Item>();
 
-	/** constructor */
+	/** Constructor */
 	public Place(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -33,23 +33,42 @@ class Place {
 		return name;
 	}
 
+	/** Set name */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/** Get description */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Set description
+	 * 
+	 * @arg description string of text filename
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * Check if the place has any exit in a direction
+	 * 
+	 * @arg dir direction
+	 */
 	public boolean hasExit(Direction dir) {
 		return exitMap.containsKey(dir);
 	}
 
-	public Exit getExit(Direction dir) {
+	/**
+	 * Get exit in a direction, if any
+	 * 
+	 * @arg dir direction
+	 * @throw RuntimeException if there is no exit for a direction
+	 */
+	public Exit getExit(Direction dir)
+			throws RuntimeException {
 		if (exitMap.get(dir) == null) {
 			throw new RuntimeException();
 		} else {
@@ -57,25 +76,38 @@ class Place {
 		}
 	}
 
+	/** Clear all exits */
 	public void clearExit() {
 		exitMap.clear();
 	}
 
+	/**
+	 * Add exit in a direction
+	 * 
+	 * @arg dir direction
+	 * @arg e exit
+	 */
 	public void addExit(Direction dir, Exit e) {
 		exitMap.put(dir, e);
 	}
 
+	/**
+	 * Remove exit in a direction
+	 * 
+	 * @arg dir direction
+	 */
 	public void removeExit(Direction dir) {
 		exitMap.remove(dir);
 	}
 
+	/** @return String string representation */
 	public String toString() {
 		String str = "Name: " + name;
 		return str;
 	}
 
+	/** Print description to console */
 	public void desc() {
-		System.out.println(new String(new char[50]).replace('\0', '-'));
 		// Print out where the user is
 		System.out.println("Current location: " + name);
 		// Print available exit

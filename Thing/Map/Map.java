@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Class to initialise place and exit as a graph
  *
@@ -7,6 +9,9 @@
  * @version Spring 2022
  */
 class Map {
+	// Adjacency matrix to store map
+	ArrayList<ArrayList<Place>> adj_list = new ArrayList<>();
+
 	/**
 	 * Manually initialise map
 	 * 
@@ -41,7 +46,7 @@ class Map {
 	}
 
 	/**
-	 * Initialise map from .txt file
+	 * Initialise map from .txt file containing adjacency matrix
 	 * 
 	 * @return starting position
 	 */
@@ -50,11 +55,21 @@ class Map {
 	}
 
 	/**
-	 * Export map as .txt file
-	 * 
-	 * @return starting position
+	 * Export map as .txt file as adjacency matrix
 	 */
 	public static void writeFile(String filename) {
-		
+
 	}
+
+	/** traverse map */
+	public static void traversal() {
+
+	}
+
+	/** @return	String	stringr representation */
+	public static void toString() {
+		String str = "";
+		return str;
+	}
+
 }
