@@ -22,18 +22,26 @@ class Item {
 		this.description = description;
 	}
 
+	/** @return name of place */
 	public String getName() {
 		return name;
 	}
 
+	/** Set name */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/** Get description */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Set description
+	 * 
+	 * @arg description string of text filename
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}

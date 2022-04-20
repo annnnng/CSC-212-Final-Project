@@ -8,8 +8,11 @@
  */
 class NPC extends Item {
 
+	/** affection level, base value 50 */
+	private int affectionLvl = 50;
+
 	/** constructor */
 	public NPC(String name, String description) {
-		super(String name, String description);
+		super( name,  description);
 	}
 }

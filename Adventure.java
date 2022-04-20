@@ -15,15 +15,18 @@ class Adventure {
 
 	// Begin game
 	public static void start(){
+
+		Player p = new Player("Test");
 		
 		// Print intro text
 		Parser.printText("Text/intro.txt");
 		Parser.promptEnterKey(sc);
 		Parser.clearScreen();
 
-		// Starting location
-		Place location = 	Map.init();
+		// Initialise map and drop player to starting location
+		Place location = Map.init();
 
+		// Switch to end game
 		boolean playing = true;
 
 		// Start game 
@@ -34,29 +37,13 @@ class Adventure {
 			// Replace this with parser
 			String input = sc.nextLine();
 			if (input.contains("w")) {
-				try {
-					location = location.getExit(Direction.WEST).getToPlace();
-				} catch (Exception e) {
-					System.err.println("No exit in that direction!");
-				}
+				location = location.getExit(Direction.WEST).getToPlace();
 			} if (input.contains("e")) {
-				try {
-					location = location.getExit(Direction.EAST).getToPlace();
-				} catch (Exception e) {
-					System.err.println("No exit in that direction!"); 
-					}
+				location = location.getExit(Direction.EAST).getToPlace();
 			} if (input.contains("s")) {
-				try {
-					location = location.getExit(Direction.SOUTH).getToPlace();
-				} catch (Exception e) {
-					System.err.println("No exit in that direction!");
-				}
+				location = location.getExit(Direction.SOUTH).getToPlace();
 			} if (input.contains("n")) {
-				try {
-					location = location.getExit(Direction.NORTH).getToPlace();
-				} catch (Exception e) {
-					System.err.println("No exit in that direction!");
-				}
+				location = location.getExit(Direction.NORTH).getToPlace();
 			}
 			
 			// End game

@@ -1,4 +1,5 @@
 import java.util.*;
+import com.google.common.graph.*;
 
 /**
  * Class to initialise place and exit as a graph
@@ -9,8 +10,15 @@ import java.util.*;
  * @version Spring 2022
  */
 class Map {
-	// Adjacency matrix to store map
-	ArrayList<ArrayList<Place>> adj_list = new ArrayList<>();
+	/** Filepath to .txt file for places */
+	private String filepath;
+
+	// Starting position
+	Place start;
+
+	public Map() {
+		this.start = init();
+	}
 
 	/**
 	 * Manually initialise map
@@ -45,29 +53,42 @@ class Map {
 		return livingRoom;
 	}
 
+	public static void initGuava() {
+		// Initialise room
+		Place batRuthRoom = new Place("Bat Ruth Room", "Text/batRuthRoom.txt");
+		Place livingRoom = new Place("Living Room", "Text/livingRoom.txt");
+		Place dungeon = new Place("Dungeon", "Text/dungeon.txt");
+		Place transylvania = new Place("Transylvania", "Text/transylvania.txt");
+		Place batmanRoom = new Place("Batman Room", "Text/batmanRoom.txt");
+		Place dailyWire = new Place("Daily Wire", "Text/dailyWire.txt");
+		
+		MutableValueGraph<Place, Direction> graph =
+			ValueGraphBuilder
+			.undirected()
+			.allowsSelfLoops(true)
+			.build();
+ graph
+	 .putEdgeValue(batRuthRoom, livingRoom, Direction.WEST);
+	}
+
 	/**
 	 * Initialise map from .txt file containing adjacency matrix
 	 * 
 	 * @return starting position
 	 */
-	public static void readFile(String filename) {
+	public void readFile(String filename) {
 
 	}
 
 	/**
 	 * Export map as .txt file as adjacency matrix
 	 */
-	public static void writeFile(String filename) {
+	public void writeFile(String filename) {
 
 	}
 
-	/** traverse map */
-	public static void traversal() {
-
-	}
-
-	/** @return	String	stringr representation */
-	public static void toString() {
+	/** @return String stringr representation */
+	public String toString() {
 		String str = "";
 		return str;
 	}

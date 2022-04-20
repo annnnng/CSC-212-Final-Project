@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.HashMap;
 
 /**
  * Class to store info and methods for places
@@ -9,48 +8,23 @@ import java.util.HashMap;
  * @author Pratima Naroula
  * @version Spring 2022
  */
-class Place {
-	/** name of place */
-	private String name;
+class Place extends Item {
 
-	/** text file with description when enter Place */
-	private String description;
-
-	/** list of exits */
+	/** hashMap<direction, exit> of exits */
 	private HashMap<Direction, Exit> exitMap = new HashMap<Direction, Exit>();
 
-	/** list of items in place */
-	private HashSet<Item> itemsList = new HashSet<Item>();
+	/** hashmap<item name, item> of items in place */
+	private HashMap<String, Item> itemsList = new HashMap<String, Item>();
+
+	/** hashmap<character name, item> list of character in place */
+	private HashMap<String, NPC> NPCList = new HashMap<String, NPC>();
 
 	/** Constructor */
 	public Place(String name, String description) {
-		this.name = name;
-		this.description = description;
+		super (name, description);
 	}
 
-	/** @return name of place */
-	public String getName() {
-		return name;
-	}
-
-	/** Set name */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/** Get description */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * Set description
-	 * 
-	 * @arg description string of text filename
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 
 	/**
 	 * Check if the place has any exit in a direction
@@ -100,20 +74,35 @@ class Place {
 		exitMap.remove(dir);
 	}
 
+	public Item getItem(String itemName) {
+		if (itemsList.get(itemName) == null) {
+			throw new RuntimeException();
+		} else {
+			return itemsList.get(itemName);
+		}
+	}
+
+	/** @arg	Item	to add to place */
+	public void addItem(Item item) {
+		itemsList.put(item.getName(), item);
+	}
+
+	/** @return	Item	remove item and return it */
+	public void removeItem(String itemName) {
+		itemsList.remove(itemName);
+	}
+
 	/** @return String string representation */
-	public String toString() {
-		String str = "Name: " + name;
-		return str;
+	@Override public String toString() {
+		return (super.toString() + "\n Exit: " + exitMap.toString());
 	}
 
 	/** Print description to console */
-	public void desc() {
-		// Print out where the user is
-		System.out.println("Current location: " + name);
+	@Override public void desc() {
+		System.out.println(" Location: " + super.getName());
 		// Print available exit
 		System.out.println(" Exit: " + exitMap.keySet());
-		// Print out description associated with location
-		Parser.printText(description);
+		Parser.printText(super.getDescription());
 		System.out.println(new String(new char[50]).replace('\0', '-'));
 	}
 }
