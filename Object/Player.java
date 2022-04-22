@@ -24,19 +24,25 @@ class Player {
 
 	/** store completed quest */
 
+	/** constructor */
 	public Player(String name) {
 		this.name = name;
 	}
 
+	/** get player current location */
 	public Place getPlayerLocation() {
 		return location;
 	}
 
+	/** set player current location */
 	public void setPlayerLocation(Place location) {
 		this.location = location;
 	}
 
+	/**
+	 * @args i Item to add to inventory
+	 */
 	public void addInventory(Item i) {
-		inventory.put(i.getName(), i); 
+		inventory.put(i.getName(), i);
 	}
 }

@@ -31,12 +31,20 @@ class Map {
 		Place batmanRoom = new Place("Batman Room", "Text/batmanRoom.txt");
 		Place dailyWire = new Place("Daily Wire", "Text/dailyWire.txt");
 
-		// Living Room
+		// LIVING ROOM
 
 		livingRoom.addExit(Direction.WEST, new Exit(batRuthRoom, true));
 		livingRoom.addExit(Direction.EAST, new Exit(batmanRoom, true));
 		livingRoom.addExit(Direction.NORTH, new Exit(dungeon, true));
 		livingRoom.addExit(Direction.SOUTH, new Exit(dailyWire, true));
+
+		// Add NPC
+
+		livingRoom.addNPC( new NPC("butler", "Object/NPC/Dialogue/butler.txt") );
+
+		// Add Item 
+
+		livingRoom.addItem(new Item("rose","rose.txt"));
 
 		// DUNGEON
 

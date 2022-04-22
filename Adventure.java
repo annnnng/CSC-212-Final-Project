@@ -29,57 +29,79 @@ class Adventure {
 
 		// Start game
 		while (playing) {
-			location.desc();
+			boolean changeRoom = false;
 
-			// Moving between places
-			// Replace this with parser
-			String input = sc.nextLine();
+			// loop to keep actions going within a specific room
+			while (!changeRoom) {
+				location.desc();
 
-			// Get rid of captitalisation and random characters
-			input = input
-					.toLowerCase()
-					.replaceAll("[^A-Za-z\\s]", "")
-					.replaceAll("\\s{2,}", " ");
+				// takes in the user input and then reads it
+				String input = sc.nextLine();
 
-			// Split the input into verb and object
-			String[] words = input.split(" ");
+				// Get rid of captitalisation and random characters
+				input = input
+						.toLowerCase()
+						.replaceAll("[^A-Za-z\\s]", "")
+						.replaceAll("\\s{2,}", " ");
 
-			// Parser assume correct grammar position in sentence
+				// Split the input into verb and object
+				String[] words = input.split(" ");
 
-			// Check if it is a traversal action
-			if (words[0].equals("north") ||
-					words[0].equals("walk") &&
-							words[1].equals("north")) {
-				location = location
-						.getExit(Direction.NORTH)
-						.getToPlace();
+				// Parser assumes correct grammar position in sentence
+				// Check if it is a traversal action
+				if (words[0].equals("north") ||
+						words[0].equals("walk") &&
+								words[1].equals("north")) {
+					location = location
+							.getExit(Direction.NORTH)
+							.getToPlace();
+					changeRoom = true;
+				}
+
+				else if (words[0].equals("south") ||
+						words[0].equals("walk") &&
+								words[1].equals("south")) {
+					location = location
+							.getExit(Direction.SOUTH)
+							.getToPlace();
+					changeRoom = true;
+				}
+
+				else if (words[0].equals("east") ||
+						words[0].equals("walk") &&
+								words[1].equals("east")) {
+					location = location
+							.getExit(Direction.EAST)
+							.getToPlace();
+					changeRoom = true;
+				}
+
+				else if (words[0].equals("west") ||
+						words[0].equals("west") &&
+								words[1].equals("west")) {
+					location = location
+							.getExit(Direction.WEST)
+							.getToPlace();
+					changeRoom = true;
+				}
+        //allows you to take an item
+
+				if (words[0].equals("take")) {
+					location.getItem(words[1]);
+				}
+        //allows you to drop an item
+
+				if (words[0].equals("drop")) {
+					location.getItem(words[1]);
+				}
+        //allows 
+
+				if (words[0].equals("help")) {
+					Parser.printText("Text/help.txt");
+				}
+
+				Parser.clearScreen();
 			}
-
-			else if (words[0].equals("south") ||
-					words[0].equals("walk") &&
-							words[1].equals("south")) {
-				location = location
-						.getExit(Direction.SOUTH)
-						.getToPlace();
-			}
-
-			else if (words[0].equals("east") ||
-					words[0].equals("walk") &&
-							words[1].equals("east")) {
-				location = location
-						.getExit(Direction.EAST)
-						.getToPlace();
-			}
-
-			else if (words[0].equals("west") ||
-					words[0].equals("west") &&
-							words[1].equals("west")) {
-				location = location
-						.getExit(Direction.WEST)
-						.getToPlace();
-			}
-
-			Parser.clearScreen();
 		}
 	}
 }

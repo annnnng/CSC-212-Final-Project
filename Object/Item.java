@@ -15,6 +15,7 @@ class Item {
 
 	/** list of attributes and corresponding command */
 	
+	
 
 	/** constructor */
 	public Item(String name, String description) {

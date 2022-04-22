@@ -3,7 +3,8 @@
 * [World building](https://docs.google.com/document/d/1XBXp_ThKilTkrM4VgrNwYNay6cXj-tJ8Tagk3Tuh1Ks/edit?usp=sharing)
 * [Map of world](https://jamboard.google.com/d/1sQGSjjKjZhDK1Q9F-CfD_QLUq_lQ2U1ZtX3q-kOsovo/edit?usp=sharing)
 * [Storyline map](https://jamboard.google.com/d/1sQGSjjKjZhDK1Q9F-CfD_QLUq_lQ2U1ZtX3q-kOsovo/edit?usp=sharing)
-* [Story text]()
+* [Story text](https://docs.google.com/document/d/1BGU3ZfVblGgCRCBGC0y5yj5CdWd6xfcacPLpBhFp0iQ/edit?usp=sharing)
+* [Java Diagram]
 
 # Have to implement
 1. ~~A graph to connects the different places~~ Make read file and create map from file

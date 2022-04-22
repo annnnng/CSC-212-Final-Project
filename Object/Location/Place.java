@@ -74,7 +74,7 @@ class Place extends Item {
 
 	public Item getItem(String itemName) {
 		if (itemsList.get(itemName) == null) {
-			throw new RuntimeException();
+			throw new RuntimeException("");
 		} else {
 			return itemsList.get(itemName);
 		}
@@ -90,9 +90,30 @@ class Place extends Item {
 		itemsList.remove(itemName);
 	}
 
+	public Item getNPC(String NPCName) {
+		if (NPCList.get(NPCName) == null) {
+			throw new RuntimeException();
+		} else {
+			return NPCList.get(NPCName);
+		}
+	}
+
+	/** @arg	Item	to add to place */
+	public void addNPC(NPC person) {
+		NPCList.put(person.getName(), person);
+	}
+
+	/** @return	Item	remove item and return it */
+	public void removeNPC(NPC person) {
+		NPCList.remove(person);
+	}
+
 	/** @return String string representation */
 	@Override public String toString() {
-		return (super.toString() + "\n Exit: " + exitMap.toString());
+		return (super.toString() 
+						+ "\n Exit: " + exitMap.toString()
+						+ "\n Items: " + itemsList.toString() 
+						+ "\n People: " + NPCList.toString());
 	}
 
 	/** Print description to console */
@@ -100,6 +121,8 @@ class Place extends Item {
 		System.out.println(" Location: " + super.getName());
 		// Print available exit
 		System.out.println(" Exit: " + exitMap.keySet());
+		System.out.println(" Items: " + itemsList.keySet());
+		System.out.println(" People: " + NPCList.keySet());
 		Parser.printText(super.getDescription());
 		System.out.println(new String(new char[50]).replace('\0', '-'));
 	}
