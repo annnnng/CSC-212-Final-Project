@@ -24,8 +24,6 @@ class Place extends Item {
 		super (name, description);
 	}
 
-	
-
 	/**
 	 * Check if the place has any exit in a direction
 	 * 

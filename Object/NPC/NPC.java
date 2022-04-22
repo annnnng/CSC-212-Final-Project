@@ -8,11 +8,12 @@
  */
 class NPC extends Item {
 
-	/** affection level, base value 50 */
-	private int affectionLvl = 50;
-
 	/** constructor */
 	public NPC(String name, String description) {
-		super( name,  description);
+		super(name, description);
+	}
+
+	public void talk() {
+		System.out.println("An NPC is talking!");
 	}
 }

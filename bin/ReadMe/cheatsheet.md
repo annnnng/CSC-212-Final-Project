@@ -8,17 +8,21 @@ Note:  It's a good idea to also make this list available inside the game, in res
 If your game includes challenges that must be overcome to win, also list them below.
 
 
-HELP: bring yourself back to this menu
+HELP: bring yourself back to this menu.
 
-//Negative skill decrease
+Walk West: moves character to the west.
 
-FALL ASLEEP IN CLASS:
+Walk North: moves character to the north. 
 
-//Positive skill increase
+Walk South: moves character to the south.
 
-GO TO TA HOURS:
+Walk East: moves character to the east. 
 
-RAISE YOUR HAND:
+Return to living room: character returns to the living from any position they are currently located. 
 
-WATCH MINI LECTURE:
+Take ____: Picks up a specified object and places it in your inventory (if applicable)
+
+Drop ____: drops your specificed item in the current character position. Can be picked up again. 
+
+
 

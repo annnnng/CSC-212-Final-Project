@@ -36,4 +36,7 @@ class Player {
 		this.location = location;
 	}
 
+	public void addInventory(Item i) {
+		inventory.put(i.getName(), i); 
+	}
 }

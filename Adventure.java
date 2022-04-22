@@ -3,7 +3,8 @@ import java.util.*;
 
 /**
  * Class to store game
- /*
+ * /*
+ * 
  * @author Anh Nguyen
  * @author Sabrina Hatch
  * @author Pratima Naroula
@@ -14,10 +15,7 @@ class Adventure {
 	private static Scanner sc = new Scanner(System.in);
 
 	// Begin game
-	public static void start(){
-
-		Player p = new Player("Test");
-		
+	public static void start() {
 		// Print intro text
 		Parser.printText("Text/intro.txt");
 		Parser.promptEnterKey(sc);
@@ -29,26 +27,56 @@ class Adventure {
 		// Switch to end game
 		boolean playing = true;
 
-		// Start game 
-		while (playing){
+		// Start game
+		while (playing) {
 			location.desc();
 
 			// Moving between places
 			// Replace this with parser
 			String input = sc.nextLine();
-			if (input.contains("w")) {
-				location = location.getExit(Direction.WEST).getToPlace();
-			} if (input.contains("e")) {
-				location = location.getExit(Direction.EAST).getToPlace();
-			} if (input.contains("s")) {
-				location = location.getExit(Direction.SOUTH).getToPlace();
-			} if (input.contains("n")) {
-				location = location.getExit(Direction.NORTH).getToPlace();
+
+			// Get rid of captitalisation and random characters
+			input = input
+					.toLowerCase()
+					.replaceAll("[^A-Za-z\\s]", "")
+					.replaceAll("\\s{2,}", " ");
+
+			// Split the input into verb and object
+			String[] words = input.split(" ");
+
+			// Parser assume correct grammar position in sentence
+
+			// Check if it is a traversal action
+			if (words[0].equals("north") ||
+					words[0].equals("walk") &&
+							words[1].equals("north")) {
+				location = location
+						.getExit(Direction.NORTH)
+						.getToPlace();
 			}
-			
-			// End game
-			if (input.contains("quit")) {
-				playing = false;
+
+			else if (words[0].equals("south") ||
+					words[0].equals("walk") &&
+							words[1].equals("south")) {
+				location = location
+						.getExit(Direction.SOUTH)
+						.getToPlace();
+			}
+
+			else if (words[0].equals("east") ||
+					words[0].equals("walk") &&
+							words[1].equals("east")) {
+				location = location
+						.getExit(Direction.EAST)
+						.getToPlace();
+			}
+
+			else if (words[0].equals("west") ||
+					words[0].equals("west") &&
+							words[1].equals("west")) {
+				location = location
+						.getExit(Direction.WEST)
+						.getToPlace();
 			}
 
 			Parser.clearScreen();

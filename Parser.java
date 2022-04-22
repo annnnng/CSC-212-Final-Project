@@ -52,46 +52,14 @@ class Parser {
 
 		// List of traversal word
 		String[] traverseArr = { "north", "south", "west", "east" };
-		ArrayList<String> traverseWords = Arrays.asList(traverseArr);
+		ArrayList<String> traverseWords = new ArrayList<String>(Arrays.asList(traverseArr));
 
 		// List of non-object action word
-		String[] nonObjWordsArr = { "look" };
-		ArrayList<String> nonObjWords = Arrays.asList(nonObjWordsArr);
+		String[] nonObjWordsArr = { "look", "help", "undo", "save" };
+		ArrayList<String> nonObjWords = new ArrayList<String>(Arrays.asList(nonObjWordsArr));
 
 		// List of object action word
-		String[] objWordsArr = { "take" };
-		ArrayList<String> objWords = Arrays.asList(objWordsArr);
-
-		// Get input
-		String input = sc.nextLine();
-
-		// Get rid of captitalisation and random characters
-		input
-				.toLowerCase()
-				.replaceAll("[^A-Za-z\\s]", "")
-				.replaceAll("\\s{2,}", " ");
-
-		// Split the input into verb and object
-		String[] words = input.split(" ");
-
-		// Parser assume correct grammar position in sentence
-
-		// Check first word is verb and if the verb need object
-
-		// Throw error if verb is not recognize or the first word is not a verb
-
-		// No need to check for object if only one object available (no other choice)
-
-		// Check second word for object to perform action on
-
-		// Check object is reachable
-
-		// Throw error if no object 
-
-	}
-
-	/** Create list of verbs from .txt file for parser */
-	public static void createDictionary(String filename) {
-
+		String[] objWordsArr = { "take", "drop" };
+		ArrayList<String> objWords = new ArrayList<String>(Arrays.asList(objWordsArr));
 	}
 }
