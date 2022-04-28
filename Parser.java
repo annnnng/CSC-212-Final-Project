@@ -44,22 +44,4 @@ class Parser {
 		System.out.println("Press \"ENTER\" to continue...");
 		scanner.nextLine();
 	}
-
-	/**
-	 * Parse two words (Verb Object) command from user input
-	 */
-	public static void parse(Scanner sc) {
-
-		// List of traversal word
-		String[] traverseArr = { "north", "south", "west", "east" };
-		ArrayList<String> traverseWords = new ArrayList<String>(Arrays.asList(traverseArr));
-
-		// List of non-object action word
-		String[] nonObjWordsArr = { "look", "help", "undo", "save" };
-		ArrayList<String> nonObjWords = new ArrayList<String>(Arrays.asList(nonObjWordsArr));
-
-		// List of object action word
-		String[] objWordsArr = { "take", "drop" };
-		ArrayList<String> objWords = new ArrayList<String>(Arrays.asList(objWordsArr));
-	}
 }

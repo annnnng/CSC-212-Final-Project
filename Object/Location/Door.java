@@ -1,30 +1,28 @@
-/**
- * Class for exit info and methods for exit
- *
- * @author Anh Nguyen
- * @author Sabrina Hatch
- * @author Pratima Naroula
- * @version Spring 2022
- */
-class Exit {
+class Door extends Item {
 	/** where exit lead to */
 	private Place toPlace;
+	
 	/** can the user use this exit */
 	private boolean accessible;
-
-	/** constructor */
-	public Exit(Place toPlace, boolean accessible) {
+	
+	public Door (String name, String description, Place toPlace, boolean accessible) {
+		super(name, description);
 		this.toPlace = toPlace;
 		this.accessible = accessible;
 	}
 
 	/** @return Place get where exit lead to */
-	public Place getToPlace() {
+	public Place useDoor() {
 		if (accessible) {
 			return toPlace;
 		} else {
 			return null;
 		}
+	}
+
+	/** get where exit lead to */
+	public Place getToPlace() {
+		return toPlace;
 	}
 
 	/** set where exit lead to */
@@ -44,11 +42,5 @@ class Exit {
 	 */
 	public void setAccess(boolean accessible) {
 		this.accessible = accessible;
-	}
-
-	/** @return	String	string representation */
-	public String toString() {
-		String str = "To: " + toPlace + ", Is accessible: " + accessible;
-		return str;
 	}
 }

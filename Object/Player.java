@@ -18,12 +18,6 @@ class Player {
 	/** inventory */
 	private HashMap<String, Item> inventory = new HashMap<String, Item>();
 
-	/** store scenario that already happened so it won't be prompted again */
-
-	/** store in progress quest & challenge */
-
-	/** store completed quest */
-
 	/** constructor */
 	public Player(String name) {
 		this.name = name;
@@ -45,4 +39,24 @@ class Player {
 	public void addInventory(Item i) {
 		inventory.put(i.getName(), i);
 	}
+
+	/**
+	 * @args name String name of item to get
+	 */
+	public Item getInventory(String name) {
+		return inventory.get(name);
+	}
+
+	/**
+	 * @args name String name of item to remove
+	 */
+	public void removeInventory(String name) {
+		inventory.remove(name);
+	}
+
+	/** print out inventory for user */
+	public void checkInventory() {
+		System.out.println("Inventory: " + inventory.keySet());
+	}
+
 }

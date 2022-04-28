@@ -1,0 +1,4 @@
+Successful: If you sell the ornate ring
+Prompt: Great job! Your valiant efforts have been rewarded and the spooky figure dressed in black gives you your ticket home, a ride on the Peter Pan bus! It’s super late though.
+Fail: You can’t leave unless you exit the game. 
+

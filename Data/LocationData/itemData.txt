@@ -1,0 +1,8 @@
+rose,Data/ItemData/rose.txt,Living Room
+key,Data/ItemData/key.txt,Transylvania
+suit,Data/ItemData/suit.txt,Batman Room
+newspaper,Data/CharacterData/BatShapiro/Newspaper1947.txt,Daily Wire
+pizza,Data/CharacterData/BatShapiro/StalePizza.txt,Daily Wire
+ipod,Data/CharacterData/BatShapiro/Ipod.txt,Daily Wire
+torch,Data/CharacterData/Batcula/TorchBat.txt,Dungeon
+photos,Data/CharacterData/Batcula/Photos.txt,Dungeon

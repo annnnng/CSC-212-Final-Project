@@ -1,0 +1,1 @@
+butler,Data/NPCData/butler.txt,Living Room

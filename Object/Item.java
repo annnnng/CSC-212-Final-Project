@@ -10,17 +10,28 @@ class Item {
 	/** name of place */
 	private String name;
 
-	/** text file with description when enter Place */
+	/** text file with description */
 	private String description;
 
-	/** list of attributes and corresponding command */
-	
-	
 
 	/** constructor */
 	public Item(String name, String description) {
 		this.name = name;
 		this.description = description;
+	}
+
+	/**
+  * Constructor.
+  * 
+  * @param row (required) a line from file
+  */
+	public Item(String row) {
+    //this splits the string by commas, but ignores a comma if it's enclosed by a pair of parentheses
+		String[] parse = row.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+
+		//sets each attribute to an index of the string array "row"
+		this.name = parse[0];
+		this.description = parse[1];
 	}
 
 	/** @return name of place */
@@ -53,8 +64,6 @@ class Item {
 	}
 
 	public void desc() {
-		// Print out where the user is
-		System.out.println("Item: " + name);
 		// Print out description associated with location
 		Parser.printText(description);
 	}
